@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Col, Container, Row, Button } from "react-bootstrap";
 
-const Cards = () => {
+const Cards =  () => {
   // Utilise le state pour stocker les articles et les articles du panier
   const [articles, setArticles] = useState([]);
   //const [cardItems, setCardItems] = useState([]);
@@ -14,12 +14,12 @@ const Cards = () => {
 
   const loadArticles = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/articles");
+      const response = await axios.get("http://localhost:8081/livres");
       // Met à jour le state avec les données des articles
       //console.log(response);
       setArticles(response.data);
     } catch (error) {
-      console.error(error);
+     // console.error(error);
     }
   };
 

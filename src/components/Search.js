@@ -5,8 +5,10 @@ import axios from "axios";
 
 const Search = () => {
   const [articles, setArticles] = useState([]);// Stocke les articles récupérés
-  const [findAll, setFindAll] = useState("");// recherche par lettre ou mot clés de l'utilisateur
+  const [livres, setLivres] = useState([]);
+  const [keyword, setKeyword] = useState("");// recherche par lettre ou mot clés de l'utilisateur
   const [isLoading, setIsLoading] = useState(false);// Hook  react-router-dom pour la navigation
+  const [titre, setTitre] = useState("");
 
   const [error, setError] = useState(null);
   //const navigate = useNavigate();
@@ -16,22 +18,26 @@ const Search = () => {
     const fetchArticles = async () => {
       setIsLoading(true);
       try {
-        const result = await axios.get( `http://localhost:8080/articles/search/designation?keyword=${keyword}`);
+        const result = await axios.get( `http://localhost:8081/articles/search/designation?keyword=${keyword}`);
+        const resultLivre = await axios.get(`http://localhost:8081/livres/search?titre=${titre}`);
 
         setArticles(result.data);
+        setLivres(result.data);
       } catch (error) {
         setError(error);
       }
       setIsLoading(false);
     };
-    if (findAll) {
+    if (keyword, titre) {
         fetchArticles();// Lance la recherche uniquement si un mot-clé est saisi
+        
       }
         }, []);
 
         //Gère le changement du mot-clé de recherche
         const handleSearch = (e) => {
-          setFindAll(e.target.value);
+          setKeyword(e.target.value);
+          setLivres(e.target.value);
         };
 
         if (isLoading) {
@@ -51,7 +57,7 @@ const Search = () => {
                     type="text"
                     className="form-control search-input"
                     placeholder="Recherche par mots clés..."
-                    value={findAll}
+                    value={keyword}
                     onChange={handleSearch}
                     autoFocus
                   />
@@ -65,7 +71,7 @@ const Search = () => {
                   key={article.id}
                   style={{ cursor: "pointer" }}
                 >
-                  <div className="card mb-4 shadow-sm">
+                  {/* <div className="card mb-4 shadow-sm">
                     <img
                       src={article.image}
                       alt={article.description}
@@ -78,14 +84,14 @@ const Search = () => {
                       <p className="card-text">{article.resume}</p>
                       <p className="card-text">{article.designation}</p>
                       <p className="card-text">{article.image}</p>
-                  
-                      <button
+                   */}
+                      {/* <button
                         className="btn btn-secondary"
                       >
                         Ajouter au panier
-                      </button>
-                    </div>
-                  </div>
+                      </button> */}
+                    {/* </div>
+                  </div> */}
                 </div>
               ))}
             </div>

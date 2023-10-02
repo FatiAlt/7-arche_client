@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
+import { Button } from 'react-bootstrap';
 const Login = () => {
     return (
         <div>
@@ -15,6 +16,8 @@ const Login = () => {
         <Form.Label>Mot de passe</Form.Label>
         <Form.Control type="password" placeholder="" />
       </Form.Group>
+      <Button variant="dark">Valider</Button>
+
     </Form>
 
 

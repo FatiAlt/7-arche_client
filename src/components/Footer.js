@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-bootstrap';
 
 
+
 const Footer = () => {
   return (
     <footer className="footer bg-dark text-white">
@@ -16,6 +17,15 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-md-6">
+          {/* <a href="https://www.facebook.com/votrePageFacebook" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faFacebookF} className="text-white me-3" />
+              </a>
+              <a href="https://twitter.com/votreCompteTwitter" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faTwitter} className="text-white me-3" />
+              </a>
+              <a href="https://www.instagram.com/votreCompteInstagram" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faInstagram} className="text-white me-3" />
+              </a> */}
             
             </div>
           </div>
